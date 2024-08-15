@@ -1,13 +1,16 @@
 {
-    "title": "Idiot",
-    "author": "Fyodor Dostojevski",
-    "isbn": "9780850670356",
-    "year": "1971"
+    "library": [
+        {
+            "title": "Idiot",
+            "author": "Fyodor Dostojevski",
+            "isbn": "9780850670356",
+            "year": "1971"
+        },
+        {
+            "title": "Moby Dick",
+            "author": "Herman Melville",
+            "isbn": "9781974305032",
+            "year": "1981"
+        }
+    ]
 }
-{
-    "title": "Moby Dick",
-    "author": "Herman Melville",
-    "isbn": "9781974305032",
-    "year": "1981"
-}
-
