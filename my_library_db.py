@@ -1,8 +1,13 @@
 # Import Module
 from tkinter import *
 from tkinter import messagebox
+import json
+import sys
 
-content = "This is the dummy content of my library!"
+with open(sys.argv[1], 'r') as file:
+    content=[]
+    for line in file:
+        content.append(line)
 
 # create root window
 root = Tk()
