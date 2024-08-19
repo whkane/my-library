@@ -48,11 +48,11 @@ class MyLibraryApp:
     def print_library_content(self, json_file):
         with open(json_file, 'r') as file:
             books=json.load(file)
-        for book in books['library']:
+        sorted_books = sorted(books['library'], key=lambda x: x['year'])
+        for book in sorted_books:
             one_book = str(book['title']) + ", " + str(book['author']) + ", " + str(book['isbn']) + ", " + str(book['year'])
             self.T.insert(END, one_book + '\n')
             self.T.insert(END, '--------------------------------------------------\n')
-
 
 if __name__ == "__main__":
     # create root window
