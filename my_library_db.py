@@ -28,8 +28,8 @@ class MyLibraryApp:
         self.T.grid(column=15, row=200)
 
         def on_click_display():
-            content = self.print_library_content(sys.argv[1])
-            self.T.insert(END, content)
+            self.T.delete("1.0", END)
+            self.print_library_content(sys.argv[1])
         # Create button to print current library content
         self.btn_print = self.create_button(root, "Display Library Content", "blue", on_click_display, 20, 15, 175)
 
@@ -47,10 +47,12 @@ class MyLibraryApp:
 
     def print_library_content(self, json_file):
         with open(json_file, 'r') as file:
-            content=[]
-            for line in file:
-                content.append(line)
-        return content
+            books=json.load(file)
+        for book in books['library']:
+            one_book = str(book['title']) + ", " + str(book['author']) + ", " + str(book['isbn']) + ", " + str(book['year'])
+            self.T.insert(END, one_book + '\n')
+            self.T.insert(END, '--------------------------------------------------\n')
+
 
 if __name__ == "__main__":
     # create root window
