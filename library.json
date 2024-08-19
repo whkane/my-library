@@ -13,6 +13,12 @@
             "year": "1981"
         },
         {
+            "title": "Vaanija",
+            "author": "Chris Carter",
+            "isbn": "9789511461654",
+            "year": "2023"
+        },
+        {
             "title": "Alexi Laiho - Chaos, Control & Guitar",
             "author": "Petri Silas",
             "isbn": "9789510455197",
@@ -32,9 +38,21 @@
         },
         {
             "title": "Stone",
-            "author": "Ari Väntänen",
-            "isbn": "9789520117597",
-            "year": "2018"
+            "author": "Ari V\u00e4nt\u00e4nen",
+            "isbn": "9789510132081",
+            "year": "1955"
+        },
+        {
+            "title": "Confess",
+            "author": "Rob Halford",
+            "isbn": "9781472269324",
+            "year": "2021"
+        },
+        {
+            "title": "Viimeinen Mohikaani",
+            "author": "James Fenimore Cooper",
+            "isbn": "9510188018",
+            "year": "1993"
         }
     ]
 }
