@@ -4,61 +4,56 @@ from tkinter import messagebox
 import json
 import sys
 
-with open(sys.argv[1], 'r') as file:
-    content=[]
-    for line in file:
-        content.append(line)
+class MyLibraryApp:
+    def __init__(self, root):
 
-# create root window
-root = Tk()
+        # Create the main window
+        self.root = root
+        self.root.title("Welcome to My Library")
+        self.root.geometry('600x1000')
 
-# root window title and dimension
-root.title("Welcome to My Library")
-# Set geometry (widthxheight)
-root.geometry('600x1000')
+        # Create labels and entry fields
+        self.book_txt = self.create_entry_field(root, "Book title", 10, 10, 15, 10, 50)
+        self.author_txt = self.create_entry_field(root, "Book author", 10, 15, 15, 15, 50)
+        self.isbn_txt = self.create_entry_field(root, "ISBN", 10, 20, 15, 20, 50)
+        self.publish_txt = self.create_entry_field(root, "Publishing year", 10, 25, 15, 25, 50)
 
-# Book label and entry field
-lbl = Label(root, text = "Book title")
-lbl.grid(column=10, row=10)
-txt = Entry(root, width=50)
-txt.grid(column=15, row=10)
+        def on_click_add_book():
+            messagebox.askquestion("Confirm","Are you sure you want to add a book?")
+        # Create button to add a book to the library
+        self.btn_add_book = self.create_button(root, "Add Book", "green", on_click_add_book, 20, 15, 150)
 
-# Author label and entry field
-lbl = Label(root, text = "Book author")
-lbl.grid(column=10, row=15)
-txt = Entry(root, width=50)
-txt.grid(column=15, row=15)
+        # Text field for showing library content
+        self.T = Text(root, height=40, width=50)
+        self.T.grid(column=15, row=200)
 
-# ISBN label and entry field
-lbl = Label(root, text = "ISBN")
-lbl.grid(column=10, row=20)
-txt = Entry(root, width=50)
-txt.grid(column=15, row=20)
+        def on_click_display():
+            content = self.print_library_content(sys.argv[1])
+            self.T.insert(END, content)
+        # Create button to print current library content
+        self.btn_print = self.create_button(root, "Display Library Content", "blue", on_click_display, 20, 15, 175)
 
-# Publishing year label and entry field
-lbl = Label(root, text = "Publishing year")
-lbl.grid(column=10, row=25)
-txt = Entry(root, width=50)
-txt.grid(column=15, row=25)
+    def create_entry_field(self, root, type, l_col, l_row, t_col, t_row, t_width):
+        lbl = Label(root, text=type)
+        lbl.grid(column=l_col, row=l_row)
+        txt = Entry(root, width=t_width)
+        txt.grid(column=t_col, row=t_row)
+        return txt
+    
+    def create_button(self, root, type, color, com, width, col, row):
+        btn = Button(root, text=type, fg=color, command=com, width=width)
+        btn.grid(column=col, row=row)
+        return btn
 
-# function to add a book to the library
-def on_click_add_book():
-    messagebox.askquestion("Confirm","Are you sure you want to add a book?")
-btn_add_book = Button(root, text="Add Book",
-             fg="green", command=on_click_add_book, width=20)
-btn_add_book.grid(column=15, row=150)
+    def print_library_content(self, json_file):
+        with open(json_file, 'r') as file:
+            content=[]
+            for line in file:
+                content.append(line)
+        return content
 
-# Text field for showing library content
-T = Text(root, height=40, width=50)
-T.grid(column=15, row=200)
-
-# function to display current library content
-def on_click_display():
-    T.insert(END, content)
-btn_display = Button(root, text="Display Library Content",
-            fg="blue", command=on_click_display, width=20)
-btn_display.grid(column=15, row=175)
-
-# all widgets will be here
-# Execute Tkinter
-root.mainloop()
+if __name__ == "__main__":
+    # create root window
+    root = Tk()
+    app = MyLibraryApp(root)
+    root.mainloop()
