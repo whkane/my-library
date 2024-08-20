@@ -22,7 +22,6 @@ class MyLibraryApp:
             answer = messagebox.askokcancel(title='Confirmation', message='Are you sure you want to add a book?')
             if answer:
                 self.add_book(sys.argv[1])
-                messagebox.showinfo("Add book", "New book added successfully!")
             else:
                 messagebox.showinfo("Add book", "No new books added.")
         # Create button to add a book to the library
@@ -46,10 +45,18 @@ class MyLibraryApp:
             new_author = self.author_txt.get()
             new_isbn = self.isbn_txt.get()
             new_publish = self.publish_txt.get()
-            new_book_obj = {'title':new_book,'author':new_author,'isbn':new_isbn,'year':new_publish}
-            books['library'].append(new_book_obj)
-            file.seek(0)
-            json.dump(books, file, indent=4)
+            if "" in {new_book, new_author, new_isbn, new_publish}:
+                messagebox.showerror("Error", "Entry field for a new book cannot be empty!")
+            elif len(new_publish) != 4:
+                messagebox.showerror("Error", "Publishing year must exactly four digits!")
+            elif len(new_isbn) != 13:
+                messagebox.showerror("Error", "ISBN must exactly thirteen digits!")
+            else:
+                new_book_obj = {'title':new_book,'author':new_author,'isbn':new_isbn,'year':new_publish}
+                books['library'].append(new_book_obj)
+                file.seek(0)
+                json.dump(books, file, indent=4)
+                messagebox.showinfo("Add book", "New book added successfully!")
 
     def create_entry_field(self, root, type, l_col, l_row, t_col, t_row, t_width):
         lbl = Label(root, text=type)
