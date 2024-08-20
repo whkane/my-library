@@ -14,12 +14,11 @@ COPY --from=compiler /opt/venv /opt/venv
 
 # Install Tkinter
 RUN apt-get update -y && apt-get install tk -y
+ENV DISPLAY=127.0.0.1:0.0
 
 # Enable venv
 ENV PATH="/opt/venv/bin:$PATH"
 COPY . /app/
-
-ENV DISPLAY=:0
 
 # Commands to run My Library application
 CMD ["python", "/app/my_library_db.py", "/app/$JSON_FILE"]
