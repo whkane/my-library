@@ -21,4 +21,4 @@ ENV PATH="/opt/venv/bin:$PATH"
 COPY . /app/
 
 # Commands to run My Library application
-CMD ["python", "/app/my_library_db.py", "/app/$JSON_FILE"]
+CMD ["python", "my_library_db.py", "$JSON_FILE"]
