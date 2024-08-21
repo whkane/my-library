@@ -1,4 +1,3 @@
-ARG JSON_FILE library.json
 FROM python:3.12-slim as compiler
 ENV PYTHONUNBUFFERED 1
 
