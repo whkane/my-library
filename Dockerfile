@@ -14,7 +14,8 @@ COPY --from=compiler /opt/venv /opt/venv
 
 # Install Tkinter
 RUN apt-get update -y && apt-get install tk -y
-ENV DISPLAY=127.0.0.1:0.0
+ENV JSON_FILE
+ENV DISPLAY
 
 # Enable venv
 ENV PATH="/opt/venv/bin:$PATH"
