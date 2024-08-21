@@ -13,12 +13,13 @@ COPY --from=compiler /opt/venv /opt/venv
 
 # Install Tkinter
 RUN apt-get update -y && apt-get install tk -y
-ENV JSON_FILE
-ENV DISPLAY
+
+ARG JSON_FILE
+ENV JSON_FILE=$JSON_FILE
 
 # Enable venv
 ENV PATH="/opt/venv/bin:$PATH"
 COPY . /app/
 
 # Commands to run My Library application
-CMD ["python", "my_library_db.py", "$JSON_FILE"]
+CMD ["bash", "-c", "python my_library_db.py $JSON_FILE"]
