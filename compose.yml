@@ -1,0 +1,12 @@
+version: '3'
+services:
+  python3:
+    build: .
+    container_name: 'mylib'
+    stdin_open: true
+    working_dir: '/app'
+    tty: true
+    volumes:
+      - .:/usr/src/app
+    environment:
+      - DISPLAY=:0.0
