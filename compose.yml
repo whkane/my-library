@@ -7,6 +7,8 @@ services:
     working_dir: '/app'
     tty: true
     volumes:
-      - .:/usr/src/app
+      - .:/app
     environment:
+      environment:
+      - JSON_FILE=${JSON_FILE}
       - DISPLAY=:0.0
