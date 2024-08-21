@@ -22,6 +22,9 @@ docker run -it -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix mylib
 ```
 ### With compose
 
+Before running docker compose, enable X Server
+* In Windows, start VcXsrv.
+* In Linux, enable xhost.
 ```
-JSON_FILE="library.json" docker-compose up -d --build 
+docker-compose up
 ```
