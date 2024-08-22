@@ -5,6 +5,7 @@ This is the documentation of "My library" application. My library is a simple GU
 ## Starting the application
 
 The application is optimized to run inside a docker container but can be executed also locally. The instructions for both methods are listed below.
+<b>Note! The application is built in a way that it only accepts JSON file of a certain structure as an input. It will not work if the file type is different or if the JSON structure is not similar as in the example, library.json.</b>
 
 ### Running the application without Docker
 
