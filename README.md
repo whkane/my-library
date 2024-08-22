@@ -10,9 +10,8 @@ The application is optimized to run inside a docker container but can be execute
 ### Running the application without Docker
 
 In order to run the application, the following software components are required: 
-* Python 3.x --> Python 3.12 has been used in the development.
-* Tkinter for Python. A Python library for GUI development.
-* Json for Python. A Python library for handling JSON type files and data.
+* Python 3.x --> Python <b>3.12.3</b> has been used in the development.
+* Tkinter for Python. A Python library for GUI development. Version <b>8.6</b> was used in the development.
 
 When all the above mentioned components are installed, the GUI can be started as follows:
 ```
@@ -22,6 +21,9 @@ In this case the JSON file with the library content is library.json and therefor
 ```
 python my_library_db.py library.json
 ```
+
+In case of a use of an another file, the library.json in the Python command can be just replaced with a similar file.
+
 ### Running the application with Docker
 
 A Docker container has been implemented for the application in order to run with a simple setup in an exactly same OS and enviroment every time. The container is Linux based on includes Python virtual environment and all the needed libraries to run the application. Before running the actual application, Docker needs to be installed for building and starting the container and X Server is needed to be installed and started in order to enable display for the containerized solution. This can be done as follows in Windows and Linux:
@@ -39,4 +41,8 @@ A Docker container has been implemented for the application in order to run with
 Finally, execute Docker compose and the GUI should be opened if everything goes as expected:
 ```
 docker-compose up
+```
+In case of a use of an another file, the library.json in the containerized solution is set as an environment variable to .env file. To use another file, just replace the following line in the file:
+```
+JSON_FILE=library.json >> JSON_FILE=<name_of_another_file>
 ```
