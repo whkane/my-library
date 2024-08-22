@@ -48,9 +48,9 @@ class MyLibraryApp:
             if "" in {new_book, new_author, new_isbn, new_publish}:
                 messagebox.showerror("Error", "Entry field for a new book cannot be empty!")
             elif len(new_publish) != 4:
-                messagebox.showerror("Error", "Publishing year must exactly four digits!")
+                messagebox.showerror("Error", "Publishing year must be exactly four digits!")
             elif len(new_isbn) != 13:
-                messagebox.showerror("Error", "ISBN must exactly thirteen digits!")
+                messagebox.showerror("Error", "ISBN must be exactly thirteen digits!")
             else:
                 new_book_obj = {'title':new_book,'author':new_author,'isbn':new_isbn,'year':new_publish}
                 books['library'].append(new_book_obj)
