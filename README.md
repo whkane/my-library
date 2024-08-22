@@ -24,9 +24,7 @@ python my_library_db.py library.json
 ```
 ### Running the application with Docker
 
-A Docker container has been implemented for the application in order to run with a simple setup in an exactly same OS and enviroment every time. The container is Linux based on includes Python virtual environment and all the needed libraries to run the application. Before running the actual application:
-1. Docker needs to be installed.
-2. X Server is needed to be started in order to enable display for the containerized solution. This can be done as follows in Windows and Linux:
+A Docker container has been implemented for the application in order to run with a simple setup in an exactly same OS and enviroment every time. The container is Linux based on includes Python virtual environment and all the needed libraries to run the application. Before running the actual application, Docker needs to be installed for building and starting the container and X Server is needed to be installed and started in order to enable display for the containerized solution. This can be done as follows in Windows and Linux:
   * In Windows, install VcXsrv and and follow the instructions of the following link until "You have now started your X Server.": 
     https://scicomp.aalto.fi/triton/quickstart/installxonwindows/
   * In Linux (in this case Ubuntu), install xserver-xorg as follows:
