@@ -1,5 +1,4 @@
-name: Build App for Windows
-
+name: build-my-library-windows
 on:
   workflow_dispatch:
   
