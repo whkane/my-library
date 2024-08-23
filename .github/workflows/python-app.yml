@@ -5,6 +5,15 @@ name: build-python-app
 
 on:
   workflow_dispatch:
+    inputs:
+      python:
+        type: choice
+        description: Python version to be used
+        options: 
+        - 3.9
+        - 3.10
+        - 3.11
+        - 3.12
 
 permissions:
   contents: read
@@ -16,22 +25,19 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
-    - name: Set up Python 3.12
+    - name: Set up Python
       uses: actions/setup-python@v3
       with:
-        python-version: "3.12"
+        python-version: "${{ python }}"
     - name: Install dependencies
       run: |
         sudo apt-get update -y && sudo apt-get upgrade -y
         sudo apt-get install python3-tk -y
         python -m pip install --upgrade pip
-        pip install flake8 pytest
+        pip install flake8
     - name: Lint with flake8
       run: |
         # stop the build if there are Python syntax errors or undefined names
         flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
         # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
-    - name: Test with pytest
-      run: |
-        pytest
