@@ -29,7 +29,7 @@ In this case the JSON file with the library content is library.json and therefor
 python my_library_db.py library.json
 ```
 
-In case of a use of an another file, the library.json in the Python command can be just replaced with a similar file.
+In case of a use of an another file, than the default `library.json` in the Python command can be just replaced with a similar file.
 
 ### Running the application with Docker
 
