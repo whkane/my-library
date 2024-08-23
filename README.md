@@ -18,7 +18,7 @@ The application is optimized to run inside a docker container but can be execute
 In order to run the application, the following software components are required: 
 * `Python 3.x` --> Python `3.12.3` has been used in the development.
 * `Tkinter` for Python. A Python library for GUI development. Version `8.6` was used in the development.
-* `Json` and `sys` libraries where also used in the application.
+* `Json` and `sys` libraries were also used in the application.
 
 When all the above mentioned components are installed, the GUI can be started as follows:
 ```
