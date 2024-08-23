@@ -1,0 +1,49 @@
+name: Build App for Windows
+
+on:
+  push:
+    tags:
+     - "*"
+  pull_request:
+    branches: [ master ]
+  release:
+    types: [published, prereleased]
+
+
+jobs:
+  build:
+    runs-on: windows-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout repository code
+        uses: actions/checkout@v2
+
+      # Configure python
+      - name: Configure Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.12"
+
+      - name: Install virtual env
+        run: |
+          python -m pip install --upgrade pipenv wheel
+
+      - id: cache-pipenv
+        uses: actions/cache@v1
+        with:
+          path: ~/.local/share/virtualenvs
+
+      - name: Install dependencies
+        if: steps.cache-pipenv.outputs.cache-hit != 'true'
+        run: |
+          pipenv install --deploy --dev
+
+      - name: Create executable
+        run: |
+          pipenv run pyinstaller --windowed --name="Mylibrary" --onefile my_library_db.py
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: |
+            dist/Mylibrary.exe
