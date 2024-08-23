@@ -2,9 +2,15 @@
 
 This is the documentation of "My library" application. My library is a simple GUI based on Python's Tkinter which shows content of a library based on a JSON file. It is also possible to expand the library by adding books based on entry fields in the GUI.
 
-## Starting the application
+## Description of the application
 
+My Library application is a simple GUI for printing library content from a JSON file. The GUI includes buttons to print the library content to a large text box and for adding a new book (or entry) into the JSON file. There are four entry fields where data needs to be inputted in a correct format:
+* Book title - Name of the book.
+* Book author - The person who wrote the book.
+* ISBN - 13 number digit for the book --> Error message will appear if the number is written in wrong format.
+* Publishing year - The year when the book was published --> Four digits is required in this case. Otherwise, error message will appear.
 The application is optimized to run inside a docker container but can be executed also locally. The instructions for both methods are listed below.
+
 <b>Note! The application is built in a way that it only accepts JSON file of a certain structure as an input. It will not work if the file type is different or if the JSON structure is not similar as in the example, library.json.</b>
 
 ### Running the application without Docker
