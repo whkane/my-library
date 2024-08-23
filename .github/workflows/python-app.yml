@@ -5,16 +5,6 @@ name: build-python-app
 
 on:
   workflow_dispatch:
-    inputs:
-      python-v:
-        type: choice
-        description: Python version to be used
-        options: 
-          - "3.9"
-          - "3.10"
-          - "3.11"
-          - "3.12"
-        default: "3.12"
 
 permissions:
   contents: read
@@ -26,10 +16,10 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
-    - name: Set up Python
+    - name: Set up Python 3.12
       uses: actions/setup-python@v3
       with:
-        python-version: ${{ python-v }}
+        python-version: 3.12
     - name: Install dependencies
       run: |
         sudo apt-get update -y && sudo apt-get upgrade -y
