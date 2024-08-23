@@ -26,23 +26,16 @@ In case of a use of an another file, the library.json in the Python command can 
 
 ### Running the application with Docker
 
-A Docker container has been implemented for the application in order to run with a simple setup in an exactly same OS and enviroment every time. The container is Linux based on includes Python virtual environment and all the needed libraries to run the application. Before running the actual application, Docker needs to be installed for building and starting the container and X Server is needed to be installed and started in order to enable display for the containerized solution. This can be done as follows in Windows and Linux:
-  * In Windows, install VcXsrv and and follow the instructions of the following link until "You have now started your X Server.": 
+A Docker container has been implemented for the application in order to run with a simple setup in an exactly same OS and enviroment every time. The container is Linux based on includes Python virtual environment and all the needed libraries to run the application. Before running the actual application, Docker (and Docker compose) needs to be installed for building and starting the container and X Server is needed to be installed and started in order to enable display for the containerized solution. This has been verified to be working in Windows OS and can be done as follows:
+  * Install VcXsrv and and follow the instructions of the following link until "You have now started your X Server.": 
     https://scicomp.aalto.fi/triton/quickstart/installxonwindows/
-  * In Linux (in this case Ubuntu), install xserver-xorg as follows:
-    ```
-    sudo apt-get -y update && sudo apt-get -y install xserver-xorg
-    ```
-    Once the installation is done, start the X Server as follows:
-    ```
-    sudo service xorg start
-    ```
+<b>Note! It should be possible to use the containerized solution also in Mac and Linux based OS. However, it has not been tested during the development of this application.</b>
 
 Finally, execute Docker compose and the GUI should be opened if everything goes as expected:
 ```
 docker-compose up
 ```
-In case of a use of an another file, the library.json in the containerized solution is set as an environment variable to .env file. To use another file, just replace the following line in the file:
+In case of a use of an another file, the library.json in the containerized solution is set as an environment variable to '.env' file. To use another file, just replace the following line in the file:
 ```
 JSON_FILE=library.json >> JSON_FILE=<name_of_another_file>
 ```
