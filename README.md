@@ -4,7 +4,7 @@ This is the documentation of "My library" application. My library is a simple GU
 
 ## Description of the application
 
-My Library application is a simple GUI for printing library content from a JSON file. The GUI includes buttons to print the library content to a large text box and for adding a new book (or entry) into the JSON file. There are four entry fields where data needs to be inputted in a correct format:
+My Library application is a simple GUI for printing library content from a JSON file. The GUI includes buttons to print the library content to a large text box and for adding a new book (or entry) into the JSON file. There are four entry fields where data needs to be written in a correct format:
 * `Book title` - Name of the book.
 * `Book author` - The person who wrote the book.
 * `ISBN` - 13 number digit for the book --> Error message will appear if the number is written in wrong format.
