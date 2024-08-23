@@ -29,6 +29,7 @@ In case of a use of an another file, the library.json in the Python command can 
 A Docker container has been implemented for the application in order to run with a simple setup in an exactly same OS and enviroment every time. The container is Linux based on includes Python virtual environment and all the needed libraries to run the application. Before running the actual application, Docker (and Docker compose) needs to be installed for building and starting the container and X Server is needed to be installed and started in order to enable display for the containerized solution. This has been verified to be working in Windows OS and can be done as follows:
   * Install VcXsrv and and follow the instructions of the following link until "You have now started your X Server.": 
     https://scicomp.aalto.fi/triton/quickstart/installxonwindows/
+    
 <b>Note! It should be possible to use the containerized solution also in Mac and Linux based OS. However, it has not been tested during the development of this application.</b>
 
 Finally, execute Docker compose and the GUI should be opened if everything goes as expected:
