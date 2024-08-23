@@ -1,6 +1,6 @@
 # My Library Application
 
-This is the documentation of "My library" application. My library is a simple GUI based on Python's Tkinter which shows content of a library based on a JSON file. It is also possible to expand the library by adding books based on entry fields in the GUI.
+This is the documentation of "My Library" application. My library is a simple GUI based on Python's Tkinter which shows content of a library based on a JSON file. It is also possible to expand the library by adding books based on entry fields in the GUI.
 
 ## Description of the application
 
