@@ -43,7 +43,7 @@ Finally, execute Docker compose and the GUI should be opened if everything goes 
 ```
 docker-compose up
 ```
-In case of a use of an another file, the library.json in the containerized solution is set as an environment variable to `.env` file. To use another file, just replace the following line in the file:
+In case of a use of an another file, than the default `library.json` in the containerized solution is set as an environment variable to `.env` file. To use another file, just replace the following line in the file:
 ```
 JSON_FILE=library.json >> JSON_FILE=<name_of_another_file>
 ```
